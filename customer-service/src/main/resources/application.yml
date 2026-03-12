@@ -1,0 +1,58 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: customer-service
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: fintrust.bank1@gmail.com
+    password: pvaijsnddxnhzoys
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  datasource:
+    url: jdbc:postgresql://ep-shiny-brook-a1ay3vmn-pooler.ap-southeast-1.aws.neon.tech/neondb?user=neondb_owner&password=npg_PhTEFJqY85bz&sslmode=require&channelBinding=require
+    username: neondb_owner
+    password: npg_PhTEFJqY85bz
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+jwt:
+  secret: MySecretKeyForFinTrustBankThatIsLongEnoughForHS256Algorithm
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.fintrust.customer: DEBUG
+
+feign:
+  client:
+    auth-service:
+      url: http://localhost:8081
+    atm-service:
+      url: http://localhost:8084
+
+# Mail (optional): set SMTP_HOST, SMTP_USER, SMTP_PASSWORD to send emails on submit and approval
+app:
+  mail:
+    enabled: true
+    from-name: FinTrust Bank
+
+cloudinary:
+  cloud-name: dx8a0yhct
+  api-key: 481233678559112
+  api-secret: hED9rdX2WROXozLdeG_sZ3Coqno
+  folder: fintrust

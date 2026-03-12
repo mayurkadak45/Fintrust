@@ -1,0 +1,60 @@
+############################
+# Java / Maven
+############################
+target/
+*.log
+*.class
+*.jar
+*.war
+
+############################
+# Spring Boot
+############################
+application-*.yml
+application-*.properties
+
+############################
+# Node / Frontend
+############################
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.vite/
+
+############################
+# Environment variables
+############################
+.env
+.env.*
+*.env
+
+############################
+# IDE files
+############################
+.vscode/
+.idea/
+*.iml
+
+############################
+# Eclipse / STS
+############################
+.project
+.classpath
+.settings/
+
+############################
+# OS files
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# Logs
+############################
+logs/
+*.log
+
+############################
+# Cloudinary / secrets
+############################
+*.secret

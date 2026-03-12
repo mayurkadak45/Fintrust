@@ -1,0 +1,35 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: transaction-service
+  datasource:
+    url: jdbc:postgresql://ep-shiny-brook-a1ay3vmn-pooler.ap-southeast-1.aws.neon.tech/neondb?user=neondb_owner&password=npg_PhTEFJqY85bz&sslmode=require&channelBinding=require
+    username: neondb_owner
+    password: npg_PhTEFJqY85bz
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+jwt:
+  secret: MySecretKeyForFinTrustBankThatIsLongEnoughForHS256Algorithm
+
+feign:
+  client:
+    account-service:
+      url: http://localhost:8082
+    customer-service:
+      url: http://localhost:8082
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.fintrust.transaction: DEBUG
