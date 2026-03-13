@@ -8,48 +8,48 @@ spring:
     gateway:
       routes:
         - id: auth-service
-          uri: http://localhost:8081
+          uri: ${AUTH_SERVICE_URL}
           predicates:
             - Path=/api/auth/**
         - id: account-documents
-          uri: http://localhost:8082
+          uri: ${ACCOUNT_SERVICE_URL}
           predicates:
             - Path=/api/accounts/documents/**
         - id: account-register
-          uri: http://localhost:8082
+          uri: ${ACCOUNT_SERVICE_URL}
           predicates:
             - Path=/api/accounts/register
         - id: account-admin
-          uri: http://localhost:8082
+          uri: ${ACCOUNT_SERVICE_URL}
           predicates:
             - Path=/api/accounts/admin/**
           filters:
             - JwtAuthFilter
         - id: account-service
-          uri: http://localhost:8082
+          uri: ${ACCOUNT_SERVICE_URL}
           predicates:
             - Path=/api/accounts/summary,/api/accounts/cards/**,/api/accounts/fd/**,/api/beneficiaries/**
           filters:
             - JwtAuthFilter
         - id: transaction-service
-          uri: http://localhost:8083
+          uri: ${TRANSACTION_SERVICE_URL}
           predicates:
             - Path=/api/transfers/**
           filters:
             - JwtAuthFilter
         - id: atm-admin
-          uri: http://localhost:8084
+          uri: ${ATM_SERVICE_URL}
           predicates:
             - Path=/api/atm/admin/**
           filters:
             - JwtAuthFilter
         - id: atm-service
-          uri: http://localhost:8084
+          uri: ${ATM_SERVICE_URL}
           predicates:
             - Path=/api/atm/**
 
 jwt:
-  secret: MySecretKeyForFinTrustBankThatIsLongEnoughForHS256Algorithm
+  secret: ${JWT_SECRET}
 
 logging:
   level:

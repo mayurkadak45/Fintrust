@@ -5,10 +5,10 @@ spring:
   application:
     name: customer-service
   mail:
-    host: smtp.gmail.com
-    port: 587
-    username: fintrust.bank1@gmail.com
-    password: pvaijsnddxnhzoys
+    host: ${SMTP_HOST}
+    port: ${SMTP_PORT}
+    username: ${SMTP_USER}
+    password: ${SMTP_PASSWORD}
     properties:
       mail:
         smtp:
@@ -16,9 +16,7 @@ spring:
           starttls:
             enable: true
   datasource:
-    url: jdbc:postgresql://ep-shiny-brook-a1ay3vmn-pooler.ap-southeast-1.aws.neon.tech/neondb?user=neondb_owner&password=npg_PhTEFJqY85bz&sslmode=require&channelBinding=require
-    username: neondb_owner
-    password: npg_PhTEFJqY85bz
+    url: ${DB_URL}
   jpa:
     hibernate:
       ddl-auto: update
@@ -28,7 +26,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 jwt:
-  secret: MySecretKeyForFinTrustBankThatIsLongEnoughForHS256Algorithm
+  secret: ${JWT_SECRET}
 
 springdoc:
   swagger-ui:
@@ -41,18 +39,19 @@ logging:
 feign:
   client:
     auth-service:
-      url: http://localhost:8081
+      url: ${AUTH_SERVICE_URL}
     atm-service:
-      url: http://localhost:8084
+      url: ${ATM_SERVICE_URL}
 
-# Mail (optional): set SMTP_HOST, SMTP_USER, SMTP_PASSWORD to send emails on submit and approval
+# Mail settings
 app:
   mail:
     enabled: true
     from-name: FinTrust Bank
 
+# Cloudinary
 cloudinary:
-  cloud-name: dx8a0yhct
-  api-key: 481233678559112
-  api-secret: hED9rdX2WROXozLdeG_sZ3Coqno
-  folder: fintrust
+  cloud-name: ${CLOUDINARY_NAME}
+  api-key: ${CLOUDINARY_KEY}
+  api-secret: ${CLOUDINARY_SECRET}
+  folder: ${CLOUDINARY_FOLDER}

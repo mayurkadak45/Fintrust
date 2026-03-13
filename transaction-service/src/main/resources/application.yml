@@ -5,9 +5,7 @@ spring:
   application:
     name: transaction-service
   datasource:
-    url: jdbc:postgresql://ep-shiny-brook-a1ay3vmn-pooler.ap-southeast-1.aws.neon.tech/neondb?user=neondb_owner&password=npg_PhTEFJqY85bz&sslmode=require&channelBinding=require
-    username: neondb_owner
-    password: npg_PhTEFJqY85bz
+    url: ${DB_URL}
   jpa:
     hibernate:
       ddl-auto: update
@@ -17,14 +15,14 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 jwt:
-  secret: MySecretKeyForFinTrustBankThatIsLongEnoughForHS256Algorithm
+  secret: ${JWT_SECRET}
 
 feign:
   client:
     account-service:
-      url: http://localhost:8082
+      url: ${ACCOUNT_SERVICE_URL}
     customer-service:
-      url: http://localhost:8082
+      url: ${CUSTOMER_SERVICE_URL}
 
 springdoc:
   swagger-ui:

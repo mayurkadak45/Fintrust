@@ -5,9 +5,7 @@ spring:
   application:
     name: auth-service
   datasource:
-    url: jdbc:postgresql://ep-shiny-brook-a1ay3vmn-pooler.ap-southeast-1.aws.neon.tech/neondb?user=neondb_owner&password=npg_PhTEFJqY85bz&sslmode=require&channelBinding=require
-    username: neondb_owner
-    password: npg_PhTEFJqY85bz
+    url: jdbc:postgresql://ep-super-cloud-a125b71d-pooler.ap-southeast-1.aws.neon.tech/fintrust_v1?user=neondb_owner&password=npg_5DfFPyxb9tud&sslmode=require&channelBinding=require
   jpa:
     hibernate:
       ddl-auto: update
